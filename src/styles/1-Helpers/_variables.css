@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after {
+	--heading-family: "Gilda Display";
+	--para-family: "Lato";
+	--btn-family: "Saira Extra Condensed";
+	--bg-primary: rgb(249, 246, 238, 1);
+	--color-primary: rgba(191, 214, 230, 1);
+	--color-light: rgba(191, 214, 230, 0.5);
+	--color-dark: rgba(0, 214, 230, 1);
+	--shadow-primary: rgb(50 50 93 / 25%) 0px 13px 27px -5px,
+		rgb(0 0 0 / 30%) 0px 8px 16px -8px;
+	--border-radius-primary: 1.75rem;
+	--transition-duration: 300ms;
+	--transition-function: ease;
+}

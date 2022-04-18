@@ -1,0 +1,141 @@
+.home-intro {
+	font-family: var(--heading-family);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - 2.5rem);
+	justify-content: space-evenly;
+	h1 {
+		font-size: 3rem;
+	}
+}
+
+.scroll-down {
+	position: relative;
+	span {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 24px;
+		height: 24px;
+		margin-left: -12px;
+		border-left: 1px solid rgb(0, 0, 0);
+		border-bottom: 1px solid rgb(0, 0, 0);
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+		-webkit-animation: sdb05 1.5s infinite;
+		animation: sdb05 1.5s infinite;
+		box-sizing: border-box;
+	}
+}
+
+.grid-info__wrap {
+	padding: 0.75vw;
+
+	display: grid;
+	grid-template-columns: repeat(64, 1fr);
+	grid-template-rows: 55vh 30vh;
+	grid-row-gap: 0.75vw;
+}
+
+.info a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 2rem;
+		font-weight: 600;
+		z-index: 2;
+		width: fit-content;
+		color: white;
+	}
+	&:hover img {
+		opacity: 0.5;
+	}
+	img {
+		opacity: 0.65;
+	}
+}
+
+.info-inner {
+	background-color: #000000;
+	width: 100%;
+	height: 100%;
+	position: relative;
+
+	img {
+		width: 100%;
+		height: 100%;
+
+		object-position: 50% 50%;
+		object-fit: cover;
+
+		transition: opacity 0.2s ease-out;
+	}
+}
+
+.info-left {
+	clip-path: polygon(0 0, 98% 0, 83% 100%, 0 100%);
+	grid-row: 1;
+	grid-column: 1 / span 35;
+}
+
+.info-right {
+	clip-path: polygon(17% 0, 100% 0, 100% 100%, 2% 100%);
+	grid-row: 1;
+	grid-column: span 35 / -1;
+}
+
+.info-small {
+	grid-row: 2;
+
+	&.info-left {
+		clip-path: polygon(0 0, 83% 0, 98% 100%, 0 100%);
+	}
+
+	&.info-right {
+		clip-path: polygon(2% 0, 100% 0, 100% 100%, 17% 100%);
+	}
+}
+
+#section2 {
+	font-family: var(--heading-family);
+	h2 {
+		text-align: center;
+	}
+}
+
+@-webkit-keyframes sdb05 {
+	0% {
+		-webkit-transform: rotate(-45deg) translate(0, 0);
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: rotate(-45deg) translate(-20px, 20px);
+		opacity: 0;
+	}
+}
+@keyframes sdb05 {
+	0% {
+		transform: rotate(-45deg) translate(0, 0);
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		transform: rotate(-45deg) translate(-20px, 20px);
+		opacity: 0;
+	}
+}

@@ -1,0 +1,380 @@
+*,
+*::before,
+*::after {
+	--heading-family: "Gilda Display";
+	--para-family: "Lato";
+	--btn-family: "Saira Extra Condensed";
+	--bg-primary: rgb(249, 246, 238, 1);
+	--color-primary: rgba(191, 214, 230, 1);
+	--color-light: rgba(191, 214, 230, 0.5);
+	--color-dark: rgba(0, 214, 230, 1);
+	--shadow-primary: rgb(50 50 93 / 25%) 0px 13px 27px -5px,
+		rgb(0 0 0 / 30%) 0px 8px 16px -8px;
+	--border-radius-primary: 1.75rem;
+	--transition-duration: 300ms;
+	--transition-function: ease;
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+	list-style: none;
+}
+/* Set core root defaults */
+html:focus-within {
+	scroll-behavior: smooth;
+}
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+}
+/* A elements that don't have a class get default styles */
+a {
+	-webkit-text-decoration-skip: ink;
+	        text-decoration-skip-ink: auto;
+	text-decoration: none;
+	color: inherit;
+}
+/* Make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		-webkit-animation-duration: 0.01ms !important;
+		        animation-duration: 0.01ms !important;
+		-webkit-animation-iteration-count: 1 !important;
+		        animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+body {
+    background-color: var(--bg-primary);
+}
+.content {
+    background-color: var(--bg-primary);
+    padding-top: calc(40px + 5rem);
+}
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 40px 100px;
+	z-index: 1000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+header .logo {
+		color: var(--color-primary);
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+.toggle {
+	position: fixed;
+	width: 60px;
+	height: 60px;
+	background: url(https://i.ibb.co/HrfVRcx/menu.png);
+	background-repeat: no-repeat;
+	background-size: 30px;
+	background-position: center;
+	cursor: pointer;
+	right: 5%;
+	top: 5%;
+	transition: 0.5s;
+	filter: invert(21%) sepia(12%) saturate(2940%) hue-rotate(269deg)
+		brightness(92%) contrast(92%);
+}
+.toggle.reveal {
+		background: url(https://i.ibb.co/rt3HybH/close.png);
+		background-repeat: no-repeat;
+		background-size: 25px;
+		background-position: center;
+		cursor: pointer;
+		position: fixed;
+		right: 20%;
+	}
+.content {
+	position: relative;
+	transition: right var(--transition-duration) var(--transition-function);
+	right: 0;
+	background: var(--bg-primary);
+}
+.content.reveal {
+		right: 300px;
+	}
+.menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 300px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--color-light);
+}
+.menu ul {
+		position: relative;
+	}
+.menu ul li {
+			list-style: none;
+		}
+.menu ul li a {
+				text-decoration: none;
+				font-size: 24px;
+				color: #111;
+			}
+.menu ul li a:hover {
+					color: #03a9f4;
+				}
+#searchbar-form {
+	position: relative;
+	width: 20rem;
+	border-radius: var(--border-radius-primary);
+}
+#searchbar-form input,
+#searchbar-button {
+	height: 2.5rem;
+	font-family: var(--para-family);
+	border: 0;
+	color: var(--color-dark);
+	font-size: 1rem;
+}
+input[type="search"] {
+	outline: 0;
+	width: 100%;
+	background: var(--color-light);
+	padding: 0 1.6rem;
+	border-radius: var(--border-radius-primary);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	transition: all var(--transition-duration) var(--transition-function);
+	transition-property: width, border-radius;
+	z-index: 1;
+	position: relative;
+}
+#searchbar-button {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 6rem;
+	font-weight: bold;
+	background: var(--color-primary);
+	border-radius: 0 var(--border-radius-primary) var(--border-radius-primary) 0;
+	color: white;
+}
+.searchbar-input:not(:-moz-placeholder-shown) {
+	border-radius: var(--border-radius-primary) 0 0 var(--border-radius-primary);
+	width: calc(100% - 6rem);
+}
+.searchbar-input:not(:-ms-input-placeholder) {
+	border-radius: var(--border-radius-primary) 0 0 var(--border-radius-primary);
+	width: calc(100% - 6rem);
+}
+.searchbar-input:not(:placeholder-shown) {
+	border-radius: var(--border-radius-primary) 0 0 var(--border-radius-primary);
+	width: calc(100% - 6rem);
+}
+.searchbar-input:not(:-moz-placeholder-shown) + #searchbar-button {
+	display: block;
+}
+.searchbar-input:not(:-ms-input-placeholder) + #searchbar-button {
+	display: block;
+}
+.searchbar-input:not(:placeholder-shown) + #searchbar-button {
+	display: block;
+}
+#searchbar-label {
+	position: absolute;
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+.logo-search {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 2rem;
+	width: 100%;
+}
+.home-intro {
+	font-family: var(--heading-family);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - 2.5rem);
+	justify-content: space-evenly;
+}
+.home-intro h1 {
+		font-size: 3rem;
+	}
+.scroll-down {
+	position: relative;
+}
+.scroll-down span {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 24px;
+		height: 24px;
+		margin-left: -12px;
+		border-left: 1px solid rgb(0, 0, 0);
+		border-bottom: 1px solid rgb(0, 0, 0);
+		transform: rotate(-45deg);
+		-webkit-animation: sdb05 1.5s infinite;
+		animation: sdb05 1.5s infinite;
+		box-sizing: border-box;
+	}
+.grid-info__wrap {
+	padding: 0.75vw;
+
+	display: grid;
+	grid-template-columns: repeat(64, 1fr);
+	grid-template-rows: 55vh 30vh;
+	grid-row-gap: 0.75vw;
+}
+.info a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.info a span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 2rem;
+		font-weight: 600;
+		z-index: 2;
+		width: -webkit-fit-content;
+		width: -moz-fit-content;
+		width: fit-content;
+		color: white;
+	}
+.info a:hover img {
+		opacity: 0.5;
+	}
+.info a img {
+		opacity: 0.65;
+	}
+.info-inner {
+	background-color: #000000;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.info-inner img {
+		width: 100%;
+		height: 100%;
+
+		-o-object-position: 50% 50%;
+
+		   object-position: 50% 50%;
+		-o-object-fit: cover;
+		   object-fit: cover;
+
+		transition: opacity 0.2s ease-out;
+	}
+.info-left {
+	-webkit-clip-path: polygon(0 0, 98% 0, 83% 100%, 0 100%);
+	        clip-path: polygon(0 0, 98% 0, 83% 100%, 0 100%);
+	grid-row: 1;
+	grid-column: 1 / span 35;
+}
+.info-right {
+	-webkit-clip-path: polygon(17% 0, 100% 0, 100% 100%, 2% 100%);
+	        clip-path: polygon(17% 0, 100% 0, 100% 100%, 2% 100%);
+	grid-row: 1;
+	grid-column: span 35 / -1;
+}
+.info-small {
+	grid-row: 2;
+}
+.info-small.info-left {
+		-webkit-clip-path: polygon(0 0, 83% 0, 98% 100%, 0 100%);
+		        clip-path: polygon(0 0, 83% 0, 98% 100%, 0 100%);
+	}
+.info-small.info-right {
+		-webkit-clip-path: polygon(2% 0, 100% 0, 100% 100%, 17% 100%);
+		        clip-path: polygon(2% 0, 100% 0, 100% 100%, 17% 100%);
+	}
+#section2 {
+	font-family: var(--heading-family);
+}
+#section2 h2 {
+		text-align: center;
+	}
+@-webkit-keyframes sdb05 {
+	0% {
+		-webkit-transform: rotate(-45deg) translate(0, 0);
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: rotate(-45deg) translate(-20px, 20px);
+		opacity: 0;
+	}
+}
+@keyframes sdb05 {
+	0% {
+		transform: rotate(-45deg) translate(0, 0);
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		transform: rotate(-45deg) translate(-20px, 20px);
+		opacity: 0;
+	}
+}
